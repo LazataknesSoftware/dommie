@@ -16,7 +16,7 @@ var head HTMLElement
 var console js.Value
 var dommieStyleSheet js.Value
 
-func Setup(method string, T func(js.Value, []js.Value)any) { //LazataknesSoftware
+func Setup(method string, T func(js.Value, []js.Value)interface{}) { //LazataknesSoftware
 	js.Global().Set(method, js.FuncOf(T))
 }
 
