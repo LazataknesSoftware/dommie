@@ -8,7 +8,7 @@ func ReadFile(input js.Value, what2do func(string)) { //LazataknesSoftware
 	}
 	fileReader := js.Global().Get("FileReader").New()
 	var contents string
-	fileReader.Set("onload", js.FuncOf(func(this js.Value, args []js.Value)any{
+	fileReader.Set("onload", js.FuncOf(func(this js.Value, args []js.Value)interface{}{
 		contents = fileReader.Get("result").String()
     what2do(contents)
 		return nil
