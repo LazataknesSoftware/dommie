@@ -2,7 +2,7 @@ package dom
 
 import "syscall/js"
 
-func ReadFile(input js.Value, what2do func(string)) {
+func ReadFile(input js.Value, what2do func(string)) { //LazataknesSoftware
 	if input.Get("value").String() == "" {
 		return;
 	}
