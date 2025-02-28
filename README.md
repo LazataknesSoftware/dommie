@@ -1,4 +1,4 @@
-# Dommie v0.0.4
+# Dommie v0.1
 A TinyGo DOM library I use for a lot of projects. It's very basic, so probably
 not what you are looking for.
 
@@ -25,3 +25,40 @@ then use in the browser. I often write wasm programs for clients where I need to
 interact with the DOM in the browser from Go.  So I decided to combine all the
 different little bits and pieces of code I have into a single library so that I
 can maintain it in just one place.
+
+## What did LazataknesSoftware add?
+
+* `FileReader`:
+
+    Here is how to read file:
+
+    ```go
+    dom.ReadFile(dom.GetElementById("file"), func (T string) {
+        dom.ShowAlert(T)
+    })
+    ```
+
+* `ShowConfirm` / `ShowPrompt`:
+    ```go
+    age := dom.ShowPrompt("Age")
+    like_pizza := dom.ShowConfirm("Do you like pizza?")
+    ```
+
+* `SearchParams`:
+    ```go
+    dom.ShowAlert(dom.GetArgument("name"))
+    ```
+
+* `Setup()` method:
+
+    > It automatically defines `js.Global()` context and puts method into `js.FuncOf`.
+
+    ```go
+    Setup("myfunc",method)
+    ```
+
+    Without `Setup()`:
+
+    ```go
+    js.Global().Set("myfunc",js.FuncOf(method))
+    ```
