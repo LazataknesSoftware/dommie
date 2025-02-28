@@ -15,6 +15,7 @@ var body HTMLElement
 var head HTMLElement
 var console js.Value
 var dommieStyleSheet js.Value
+var Setup func(string, any)
 
 // ----------------------------------------------------------------------------
 // Set up references to some basics Dommie uses a lot.
@@ -23,6 +24,7 @@ func init() {
 	head = document.Get("head")
 	body = document.Get("body")
 	console = js.Global().Get("console")
+	Setup = js.Global().Set //LazataknesSoftware
 }
 
 // ----------------------------------------------------------------------------
